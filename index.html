@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Program pro komunální volby 2026 v Roztokách u Křivoklátu.">
+  <meta name="theme-color" content="#7440cc">
+  <title>Srdcem v Roztokách | Program 2026</title>
+  <style>
+    @font-face {
+      font-family: "Bebas Neue Pro";
+      src: url("fonts/Bebas-Neue-Pro-Regular-BF66cf3d7814160.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Bebas Neue Pro Expanded";
+      src: url("fonts/Bebas-Neue-Pro-Expanded-ExtraBold-BF66cf3d793166e.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+    }
+
+    :root {
+      --paper: #f7f4eb;
+      --paper-light: #fffdf0;
+      --ink: #20152f;
+      --muted: #655d6f;
+      --forest: #7440cc;
+      --forest-dark: #5426a4;
+      --river: #7440cc;
+      --sun: #fffdf0;
+      --accent: #00e590;
+      --line: rgba(61, 35, 105, 0.18);
+      --content: 1180px;
+      --font-body: "Bebas Neue Pro", sans-serif;
+      --font-heading: "Bebas Neue Pro Expanded", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgba(116, 64, 204, 0.035) 50%, transparent 50.2%) 0 0 / 72px 72px,
+        linear-gradient(rgba(116, 64, 204, 0.025) 1px, transparent 1px) 0 0 / 100% 36px,
+        var(--paper);
+      font-family: var(--font-body);
+      line-height: 1.65;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: white;
+      background: var(--forest-dark);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(760px, 100vh);
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(90deg, transparent 49.85%, rgba(255, 253, 240, 0.06) 50%, transparent 50.15%) 0 0 / 88px 88px,
+        var(--forest);
+    }
+
+    .hero-decorations {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-shape {
+      position: absolute;
+      display: block;
+      border: 4px solid rgba(255, 253, 240, 0.9);
+    }
+
+    .shape-top {
+      top: -72px;
+      left: 18%;
+      width: 78px;
+      height: 150px;
+      border-radius: 0 0 42px 42px;
+    }
+
+    .shape-left {
+      top: 150px;
+      left: -98px;
+      width: 108px;
+      height: 250px;
+      border-radius: 0 0 54px 54px;
+    }
+
+    .shape-left-dot {
+      top: 426px;
+      left: -64px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+    }
+
+    .shape-right {
+      top: 210px;
+      right: -112px;
+      width: 270px;
+      height: 80px;
+      border-radius: 42px;
+    }
+
+    .shape-bottom {
+      bottom: -95px;
+      left: 58%;
+      width: 84px;
+      height: 210px;
+      border-radius: 44px 44px 0 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      width: min(calc(100% - 40px), var(--content));
+      min-height: inherit;
+      margin: 0 auto;
+      padding: 70px 0 100px;
+    }
+
+    .hero-inner > div:first-child {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font: 800 0.78rem/1.2 var(--font-heading);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 810px;
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(3.3rem, 7.5vw, 7.3rem);
+      line-height: 0.93;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .hero-lead {
+      max-width: 690px;
+      margin: 30px 0 36px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 20px;
+      color: var(--forest-dark);
+      background: var(--accent);
+      font: 800 0.86rem/1 var(--font-heading);
+      text-decoration: none;
+    }
+
+    .hero-link::after {
+      margin-left: 12px;
+      font-size: 1.25rem;
+      content: "↓";
+    }
+
+    .overview {
+      position: relative;
+      z-index: 2;
+      width: min(calc(100% - 40px), var(--content));
+      margin: -50px auto 0;
+      background: var(--paper-light);
+      box-shadow: 0 20px 50px rgba(61, 35, 105, 0.15);
+    }
+
+    .overview-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .overview-list li + li {
+      border-left: 1px solid var(--line);
+    }
+
+    .overview-list a {
+      display: block;
+      min-height: 174px;
+      padding: 26px 22px;
+      text-decoration: none;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .overview-list a:hover,
+    .overview-list a:focus-visible {
+      color: white;
+      background: var(--forest);
+    }
+
+    .overview-number {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--river);
+      font: 800 1.6rem/1 var(--font-heading);
+    }
+
+    .overview-list a:hover .overview-number,
+    .overview-list a:focus-visible .overview-number {
+      color: var(--accent);
+    }
+
+    .overview-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .program-intro {
+      width: min(calc(100% - 40px), 760px);
+      margin: 120px auto 70px;
+      text-align: center;
+    }
+
+    .program-intro .eyebrow {
+      color: var(--forest);
+    }
+
+    .program-intro h2 {
+      margin: 0 0 18px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1;
+    }
+
+    .program-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .program-section {
+      width: min(calc(100% - 40px), var(--content));
+      margin: 0 auto;
+      padding: 92px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 700px);
+      margin-bottom: 58px;
+      gap: 34px;
+    }
+
+    .section-number {
+      color: var(--river);
+      font: 800 4.8rem/0.88 var(--font-heading);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2rem, 4.3vw, 3.8rem);
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    .points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-left: 154px;
+      gap: 0 64px;
+    }
+
+    .point {
+      padding: 30px 0 36px;
+      border-top: 1px solid var(--line);
+    }
+
+    .point h3 {
+      position: relative;
+      margin: 0 0 14px;
+      padding-left: 25px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .point h3::before {
+      position: absolute;
+      top: 0.4em;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .point p {
+      margin: 0;
+      color: #4d4655;
+    }
+
+    .site-footer {
+      color: white;
+      background: var(--forest-dark);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      width: min(calc(100% - 40px), var(--content));
+      min-height: 260px;
+      margin: 0 auto;
+      padding: 56px 0;
+      gap: 40px;
+    }
+
+    .footer-place {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.1rem, 5vw, 4.5rem);
+      line-height: 0.95;
+    }
+
+    .footer-note {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .back-to-top {
+      display: inline-grid;
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font: 700 1.3rem/1 sans-serif;
+      text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .overview-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview-list li + li {
+        border-left: 0;
+      }
+
+      .overview-list li:nth-child(even) {
+        border-left: 1px solid var(--line);
+      }
+
+      .overview-list li:nth-child(n + 3) {
+        border-top: 1px solid var(--line);
+      }
+
+      .overview-list li:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .overview-list a {
+        min-height: 135px;
+      }
+
+      .points {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero-inner,
+      .overview,
+      .program-section,
+      .program-intro,
+      .footer-inner {
+        width: min(calc(100% - 28px), var(--content));
+      }
+
+      .hero {
+        min-height: 660px;
+      }
+
+      .hero-inner {
+        padding: 54px 0 110px;
+      }
+
+      .shape-top {
+        left: 66%;
+      }
+
+      .shape-left {
+        display: none;
+      }
+
+      .shape-left-dot {
+        display: none;
+      }
+
+      .shape-right {
+        top: 520px;
+        right: -205px;
+      }
+
+      .shape-bottom {
+        left: 72%;
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 13.2vw, 4.2rem);
+      }
+
+      .hero-lead {
+        margin-top: 24px;
+      }
+
+      .overview {
+        margin-top: -34px;
+      }
+
+      .overview-list {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-list li:nth-child(even) {
+        border-left: 0;
+      }
+
+      .overview-list li:nth-child(n + 2) {
+        border-top: 1px solid var(--line);
+      }
+
+      .overview-list li:last-child {
+        grid-column: auto;
+      }
+
+      .overview-list a {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        align-items: center;
+        min-height: 92px;
+        padding: 18px 20px;
+        gap: 8px;
+      }
+
+      .overview-number {
+        margin: 0;
+      }
+
+      .program-intro {
+        margin-top: 84px;
+        text-align: left;
+      }
+
+      .program-section {
+        padding: 72px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        margin-bottom: 36px;
+        gap: 18px;
+      }
+
+      .section-number {
+        font-size: 2.5rem;
+      }
+
+      .points {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-inner {
+        align-items: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    @media print {
+      .overview,
+      .hero-link,
+      .back-to-top { display: none; }
+
+      body { background: white; }
+      .hero { min-height: auto; color: var(--ink); background: white; }
+      .hero-inner { display: block; min-height: auto; padding: 32px 0; }
+      .eyebrow { color: var(--forest); }
+      .hero-lead { color: var(--muted); }
+      .program-intro { margin: 40px auto; }
+      .program-section { padding: 36px 0; break-inside: avoid; }
+      .site-footer { color: var(--ink); background: white; }
+      .footer-inner { min-height: auto; }
+    }
+  </style>
+</head>
+<body id="nahoru">
+  <a class="skip-link" href="#program">Přejít na program</a>
+
+  <main id="program">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-decorations" aria-hidden="true">
+        <span class="hero-shape shape-top"></span>
+        <span class="hero-shape shape-left"></span>
+        <span class="hero-shape shape-left-dot"></span>
+        <span class="hero-shape shape-right"></span>
+        <span class="hero-shape shape-bottom"></span>
+      </div>
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Program pro komunální volby 2026</p>
+          <h1 id="hero-title">Srdcem<br>v Roztokách</h1>
+          <p class="hero-lead">Konkrétní plán pro bezpečnou, živou a dobře spravovanou obec, ve které se dobře žije všem generacím.</p>
+          <a class="hero-link" href="#prehled">Prohlédnout program</a>
+        </div>
+      </div>
+    </section>
+
+    <nav class="overview" id="prehled" aria-label="Přehled programových oblastí">
+      <ol class="overview-list">
+        <li><a href="#doprava"><span class="overview-number">01</span><strong class="overview-title">Doprava, bezpečnost a infrastruktura</strong></a></li>
+        <li><a href="#verejny-prostor"><span class="overview-number">02</span><strong class="overview-title">Veřejný prostor, úklid a rozvoj</strong></a></li>
+        <li><a href="#zivotni-prostredi"><span class="overview-number">03</span><strong class="overview-title">Odpady, energetika a životní prostředí</strong></a></li>
+        <li><a href="#spolkovy-zivot"><span class="overview-number">04</span><strong class="overview-title">Spolkový život, volný čas a turismus</strong></a></li>
+        <li><a href="#samosprava"><span class="overview-number">05</span><strong class="overview-title">Otevřená samospráva a péče o občany</strong></a></li>
+      </ol>
+    </nav>
+
+    <div class="program-intro">
+      <p class="eyebrow">Pět oblastí pro lepší obec</p>
+      <h2>Náš program</h2>
+      <p>Praktické kroky pro každodenní život v Roztokách i dlouhodobý rozvoj celé obce.</p>
+    </div>
+
+    <section class="program-section" id="doprava" aria-labelledby="doprava-title">
+      <div class="section-heading"><span class="section-number">01</span><h2 id="doprava-title">Doprava, bezpečnost, technická infrastruktura</h2></div>
+      <div class="points">
+        <article class="point"><h3>Zklidnění dopravy a bezpečnostní audit</h3><p>Provedeme plošnou revizi kritických a nepřehledných míst na místních komunikacích, na kterou navážeme instalací chytrých bezpečnostních prvků (dopravní zrcadla, reflexní prvky, kvalitnější osvětlení).</p><p>Podpoříme zavedení rychlostního limitu 30 km/h v exponovaných úsecích obce, zejména u křivoklátské školy, v úzké uličce k jezu, a oboustranné úsekové měření na hlavní silnici od Permonu ke stavebninám.</p></article>
+        <article class="point"><h3>Chodníky a pěší trasy</h3><p>Budeme realizovat výstavbu nových bezpečných chodníků ke škole na Křivoklátě a k vlakovému nádraží, úpravu pěšiny podél kolejí a přípravu okružní odpočinkové cesty kolem celé obce.</p></article>
+        <article class="point"><h3>Krizová připravenost a osvěta</h3><p>Připravíme vydání „krizové karty občana“ s jasnými instrukcemi pro případ mimořádných událostí (blackout, povodně), zavedeme osvětu v oblasti varovných systémů ve spolupráci se složkami IZS.</p></article>
+        <article class="point"><h3>Infrastruktura a sítě</h3><p>Postaráme se o řádnou údržbu a dostavbu chybějících infrastrukturních sítí (voda, kanalizace, cesty, elektřina, teplovod) v Roztokách i na Karlově. Budeme jednat s ČEZ a CETIN o přeložení elektrického vedení (VN i NN) pod zem a zavedení vysokorychlostního internetu (optiky) k domům.</p></article>
+        <article class="point"><h3>E-mobilita a seniorská doprava</h3><p>Zajistíme výstavbu dobíjecí stanice pro elektromobily, rozšíření parkování na sídlišti i u nádraží a zkušební provoz obecní dodávky na zavolání/SMS pro dopravu seniorů do Rakovníka.</p></article>
+      </div>
+    </section>
+
+    <section class="program-section" id="verejny-prostor" aria-labelledby="verejny-prostor-title">
+      <div class="section-heading"><span class="section-number">02</span><h2 id="verejny-prostor-title">Veřejný prostor, úklid a rozvoj</h2></div>
+      <div class="points">
+        <article class="point"><h3>Kvalitnější údržba a sezónní úklid</h3><p>Zavedeme ekologicky správnější sečení trávy a důsledný sezónní úklid obce (včetně jarního úklidu po zimní sezóně apod.).</p></article>
+        <article class="point"><h3>Areál u jezu</h3><p>Tento prostor si zaslouží celkovou revitalizaci. Jde nám o komplexní řešení jak prostranství k řece, tak parkoviště. Podpoříme zde výsadbu stromů, zpoplatnění parkoviště po vzoru jiných turistických obcí, realizujeme zde veřejné WC a převlékací zástěny. Zkvalitníme odpočinkovou infrastrukturu, doplníme odpočinkové zóny.</p></article>
+        <article class="point"><h3>Orientace a úprava prostranství</h3><p>V areálu instalujeme přehledné orientační mapy obce a jejího okolí. Budeme jednat s vlastníky pozemků kolem nádraží o celkovém zkulturnění tohoto prostoru.</p></article>
+        <article class="point"><h3>Bydlení a územní rozvoj</h3><p>Zrychlíme přípravu a schválení územního plánu pro podporu rodinného bydlení a zasíťování obecních pozemků. Obnovíme historický přívoz do osady Višňová.</p></article>
+      </div>
+    </section>
+
+    <section class="program-section" id="zivotni-prostredi" aria-labelledby="zivotni-prostredi-title">
+      <div class="section-heading"><span class="section-number">03</span><h2 id="zivotni-prostredi-title">Odpadové hospodářství, energetika a životní prostředí</h2></div>
+      <div class="points">
+        <article class="point"><h3>Ekonomika odpadů a prevence</h3><p>Máme připravena konkrétní opatření zaměřená na předcházení vzniku odpadů, osvětu a snižování celkových finančních nákladů obce i občanů na odpadové hospodářství. Zkvalitnění třídění a recyklace jsou nutným začátkem.</p></article>
+        <article class="point"><h3>Energetická soběstačnost a voda</h3><p>Navrhneme výstavbu fotovoltaické elektrárny (FVE) na budově ZŠ a MŠ V Zahrádkách s možností sdílení vyrobené elektřiny s obecním úřadem. Podpoříme občany v zachytávání dešťové vody (např. formou dotačního pořízení sudů po vzoru dřívějších kompostérů).</p></article>
+      </div>
+    </section>
+
+    <section class="program-section" id="spolkovy-zivot" aria-labelledby="spolkovy-zivot-title">
+      <div class="section-heading"><span class="section-number">04</span><h2 id="spolkovy-zivot-title">Spolkový život, volný čas a vyvážený turismus</h2></div>
+      <div class="points">
+        <article class="point"><h3>Podpora udržitelného turismu</h3><p>Podporujeme udržitelný rozvoj turismu a turistické infrastruktury. Nastavíme pravidla tak, aby návštěvníci neomezovali kvalitu života místních obyvatel a cestovní ruch přinášel obci užitek.</p></article>
+        <article class="point"><h3>Sport a vyžití pro děti i mládež</h3><p>Otevřeme fotbalové hřiště TJ Roztoky veřejnosti v mimozápasových časech. Budeme realizovat vznik nového dětského hřiště u jezu, chceme vybudovat pumptrack, BMX/skatepark a volejbalový kurt.</p></article>
+        <article class="point"><h3>Tradice, kurzy a spolky</h3><p>Podpoříme vznik nových zájmových spolků a kurzů pro děti i dospělé. Obnovíme tradiční kulturní akce (Máje, Posvícení, Neckyáda, koncerty) a partnerskou kulturní spolupráci s okolními obcemi (Křivoklát, Velká Buková, Městečko).</p></article>
+      </div>
+    </section>
+
+    <section class="program-section" id="samosprava" aria-labelledby="samosprava-title">
+      <div class="section-heading"><span class="section-number">05</span><h2 id="samosprava-title">Otevřená samospráva, komunikace a péče o občany</h2></div>
+      <div class="points">
+        <article class="point"><h3>Moderní a dostupná komunikace</h3><p>Upravíme a zpřehledníme webové stránky a zavedeme elektronickou úřední tabuli, obnovíme pravidelný obecní rozhlas, který zajistí offline dostupnost informací z webu a mobilní aplikace „V obraze“.</p></article>
+        <article class="point"><h3>Digitální gramotnost a osvěta</h3><p>Budeme pořádat vzdělávací semináře k posilování digitálních dovedností občanů všech generací a k praktickému využívání moderních digitálních nástrojů a služeb státu.</p></article>
+        <article class="point"><h3>Participace a odbornost</h3><p>Zavedeme pravidelná neformální setkání vedení obce s občany nad investicemi a chystanými projekty. Zřídíme stálý mezioborový poradní tým (architekti, urbanisté, ekologové a technici) pro fundované rozhodování opřené o data.</p></article>
+        <article class="point"><h3>Péče o seniory</h3><p>Podpoříme rozvoj terénní pečovatelské služby a prověříme proveditelnost i ekonomickou návratnost vzniku domova pro seniory.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><p class="eyebrow">Komunální volby 2026</p><p class="footer-place">Srdcem<br>v Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
+      <a class="back-to-top" href="#nahoru" aria-label="Zpět nahoru">↑</a>
+    </div>
+  </footer>
+</body>
+</html>
