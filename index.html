@@ -46,6 +46,9 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 84px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
     }
 
     body {
@@ -56,6 +59,8 @@
         linear-gradient(rgba(116, 64, 204, 0.025) 1px, transparent 1px) 0 0 / 100% 36px,
         var(--paper);
       font-family: var(--font-body);
+      font-size: 18px;
+      font-synthesis: none;
       line-height: 1.65;
     }
 
@@ -169,6 +174,10 @@
       text-transform: uppercase;
     }
 
+    .hero .eyebrow {
+      font-size: 1rem;
+    }
+
     h1 {
       max-width: 810px;
       margin: 0;
@@ -181,20 +190,20 @@
     }
 
     .hero-lead {
-      max-width: 690px;
+      max-width: 7000px;
       margin: 30px 0 36px;
       color: rgba(255, 255, 255, 0.86);
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
     }
 
     .hero-link {
       display: inline-flex;
       align-items: center;
       min-height: 48px;
-      padding: 0 20px;
+      padding: 1rem;
       color: var(--forest-dark);
       background: var(--accent);
-      font: 800 0.86rem/1 var(--font-heading);
+      font: 800 1.25rem/1 var(--font-heading);
       text-decoration: none;
     }
 
@@ -225,8 +234,13 @@
       border-left: 1px solid var(--line);
     }
 
+    .overview-list li {
+      display: flex;
+    }
+
     .overview-list a {
       display: block;
+      flex: 1;
       min-height: 174px;
       padding: 26px 22px;
       text-decoration: none;
@@ -235,25 +249,25 @@
 
     .overview-list a:hover,
     .overview-list a:focus-visible {
-      color: white;
-      background: var(--forest);
+      color: var(--forest);
+      background: var(--accent);
     }
 
     .overview-number {
       display: block;
       margin-bottom: 16px;
       color: var(--river);
-      font: 800 1.6rem/1 var(--font-heading);
+      font: 800 1.75rem/1 var(--font-heading);
     }
 
     .overview-list a:hover .overview-number,
     .overview-list a:focus-visible .overview-number {
-      color: var(--accent);
+      color: var(--forest);
     }
 
     .overview-title {
       font-family: var(--font-heading);
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: 800;
       line-height: 1.3;
     }
@@ -270,6 +284,7 @@
 
     .program-intro .eyebrow {
       color: var(--forest);
+      margin-bottom: .5rem;
     }
 
     .program-intro h2 {
@@ -332,7 +347,7 @@
       padding-left: 25px;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       line-height: 1.25;
     }
 
@@ -350,6 +365,12 @@
     .point p {
       margin: 0;
       color: #4d4655;
+      font-size: 1.35rem;
+      line-height: 1.7;
+    }
+
+    .point p + p {
+      margin-top: 1em;
     }
 
     .site-footer {
@@ -572,8 +593,8 @@
       <div class="hero-inner">
         <div>
           <p class="eyebrow">Program pro komunální volby 2026</p>
-          <h1 id="hero-title">Srdcem<br>v Roztokách</h1>
-          <p class="hero-lead">Konkrétní plán pro bezpečnou, živou a dobře spravovanou obec, ve které se dobře žije všem generacím.</p>
+          <h1 id="hero-title">Srdcem<br>v&nbsp;Roztokách</h1>
+          <p class="hero-lead">Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec, ve které se dobře žije všem generacím.</p>
           <a class="hero-link" href="#prehled">Prohlédnout program</a>
         </div>
       </div>
@@ -581,72 +602,72 @@
 
     <nav class="overview" id="prehled" aria-label="Přehled programových oblastí">
       <ol class="overview-list">
-        <li><a href="#doprava"><span class="overview-number">01</span><strong class="overview-title">Doprava, bezpečnost a infrastruktura</strong></a></li>
-        <li><a href="#verejny-prostor"><span class="overview-number">02</span><strong class="overview-title">Veřejný prostor, úklid a rozvoj</strong></a></li>
-        <li><a href="#zivotni-prostredi"><span class="overview-number">03</span><strong class="overview-title">Odpady, energetika a životní prostředí</strong></a></li>
-        <li><a href="#spolkovy-zivot"><span class="overview-number">04</span><strong class="overview-title">Spolkový život, volný čas a turismus</strong></a></li>
-        <li><a href="#samosprava"><span class="overview-number">05</span><strong class="overview-title">Otevřená samospráva a péče o občany</strong></a></li>
+        <li><a href="#doprava"><span class="overview-number">01</span><strong class="overview-title">Doprava, bezpečnost a&nbsp;infrastruktura</strong></a></li>
+        <li><a href="#verejny-prostor"><span class="overview-number">02</span><strong class="overview-title">Veřejný prostor, úklid a&nbsp;rozvoj</strong></a></li>
+        <li><a href="#zivotni-prostredi"><span class="overview-number">03</span><strong class="overview-title">Odpady, energetika a&nbsp;životní prostředí</strong></a></li>
+        <li><a href="#spolkovy-zivot"><span class="overview-number">04</span><strong class="overview-title">Spolkový život, volný čas a&nbsp;turismus</strong></a></li>
+        <li><a href="#samosprava"><span class="overview-number">05</span><strong class="overview-title">Otevřená samospráva a&nbsp;péče o&nbsp;občany</strong></a></li>
       </ol>
     </nav>
 
     <div class="program-intro">
       <p class="eyebrow">Pět oblastí pro lepší obec</p>
       <h2>Náš program</h2>
-      <p>Praktické kroky pro každodenní život v Roztokách i dlouhodobý rozvoj celé obce.</p>
+      <p>Praktické kroky pro každodenní život v&nbsp;Roztokách i&nbsp;dlouhodobý rozvoj celé obce.</p>
     </div>
 
     <section class="program-section" id="doprava" aria-labelledby="doprava-title">
       <div class="section-heading"><span class="section-number">01</span><h2 id="doprava-title">Doprava, bezpečnost, technická infrastruktura</h2></div>
       <div class="points">
-        <article class="point"><h3>Zklidnění dopravy a bezpečnostní audit</h3><p>Provedeme plošnou revizi kritických a nepřehledných míst na místních komunikacích, na kterou navážeme instalací chytrých bezpečnostních prvků (dopravní zrcadla, reflexní prvky, kvalitnější osvětlení).</p><p>Podpoříme zavedení rychlostního limitu 30 km/h v exponovaných úsecích obce, zejména u křivoklátské školy, v úzké uličce k jezu, a oboustranné úsekové měření na hlavní silnici od Permonu ke stavebninám.</p></article>
-        <article class="point"><h3>Chodníky a pěší trasy</h3><p>Budeme realizovat výstavbu nových bezpečných chodníků ke škole na Křivoklátě a k vlakovému nádraží, úpravu pěšiny podél kolejí a přípravu okružní odpočinkové cesty kolem celé obce.</p></article>
-        <article class="point"><h3>Krizová připravenost a osvěta</h3><p>Připravíme vydání „krizové karty občana“ s jasnými instrukcemi pro případ mimořádných událostí (blackout, povodně), zavedeme osvětu v oblasti varovných systémů ve spolupráci se složkami IZS.</p></article>
-        <article class="point"><h3>Infrastruktura a sítě</h3><p>Postaráme se o řádnou údržbu a dostavbu chybějících infrastrukturních sítí (voda, kanalizace, cesty, elektřina, teplovod) v Roztokách i na Karlově. Budeme jednat s ČEZ a CETIN o přeložení elektrického vedení (VN i NN) pod zem a zavedení vysokorychlostního internetu (optiky) k domům.</p></article>
-        <article class="point"><h3>E-mobilita a seniorská doprava</h3><p>Zajistíme výstavbu dobíjecí stanice pro elektromobily, rozšíření parkování na sídlišti i u nádraží a zkušební provoz obecní dodávky na zavolání/SMS pro dopravu seniorů do Rakovníka.</p></article>
+        <article class="point"><h3>Zklidnění dopravy a&nbsp;bezpečnostní audit</h3><p>Provedeme plošnou revizi kritických a&nbsp;nepřehledných míst na místních komunikacích, na kterou navážeme instalací chytrých bezpečnostních prvků (dopravní zrcadla, reflexní prvky, kvalitnější osvětlení).</p><p>Podpoříme zavedení rychlostního limitu 30 km/h v&nbsp;exponovaných úsecích obce, zejména u&nbsp;křivoklátské školy, v&nbsp;úzké uličce k&nbsp;jezu, a&nbsp;oboustranné úsekové měření na hlavní silnici od Permonu ke stavebninám.</p></article>
+        <article class="point"><h3>Chodníky a&nbsp;pěší trasy</h3><p>Budeme realizovat výstavbu nových bezpečných chodníků ke škole na Křivoklátě a&nbsp;k&nbsp;vlakovému nádraží, úpravu pěšiny podél kolejí a&nbsp;přípravu okružní odpočinkové cesty kolem celé obce.</p></article>
+        <article class="point"><h3>Krizová připravenost a&nbsp;osvěta</h3><p>Připravíme vydání „krizové karty občana“ s&nbsp;jasnými instrukcemi pro případ mimořádných událostí (blackout, povodně), zavedeme osvětu v&nbsp;oblasti varovných systémů ve spolupráci se složkami IZS.</p></article>
+        <article class="point"><h3>Infrastruktura a&nbsp;sítě</h3><p>Postaráme se o&nbsp;řádnou údržbu a&nbsp;dostavbu chybějících infrastrukturních sítí (voda, kanalizace, cesty, elektřina, teplovod) v&nbsp;Roztokách i&nbsp;na Karlově. Budeme jednat s&nbsp;ČEZ a&nbsp;CETIN o&nbsp;přeložení elektrického vedení (VN i&nbsp;NN) pod zem a&nbsp;zavedení vysokorychlostního internetu (optiky) k&nbsp;domům.</p></article>
+        <article class="point"><h3>E-mobilita a&nbsp;seniorská doprava</h3><p>Zajistíme výstavbu dobíjecí stanice pro elektromobily, rozšíření parkování na sídlišti i&nbsp;u&nbsp;nádraží a&nbsp;zkušební provoz obecní dodávky na zavolání/SMS pro dopravu seniorů do Rakovníka.</p></article>
       </div>
     </section>
 
     <section class="program-section" id="verejny-prostor" aria-labelledby="verejny-prostor-title">
-      <div class="section-heading"><span class="section-number">02</span><h2 id="verejny-prostor-title">Veřejný prostor, úklid a rozvoj</h2></div>
+      <div class="section-heading"><span class="section-number">02</span><h2 id="verejny-prostor-title">Veřejný prostor, úklid a&nbsp;rozvoj</h2></div>
       <div class="points">
-        <article class="point"><h3>Kvalitnější údržba a sezónní úklid</h3><p>Zavedeme ekologicky správnější sečení trávy a důsledný sezónní úklid obce (včetně jarního úklidu po zimní sezóně apod.).</p></article>
-        <article class="point"><h3>Areál u jezu</h3><p>Tento prostor si zaslouží celkovou revitalizaci. Jde nám o komplexní řešení jak prostranství k řece, tak parkoviště. Podpoříme zde výsadbu stromů, zpoplatnění parkoviště po vzoru jiných turistických obcí, realizujeme zde veřejné WC a převlékací zástěny. Zkvalitníme odpočinkovou infrastrukturu, doplníme odpočinkové zóny.</p></article>
-        <article class="point"><h3>Orientace a úprava prostranství</h3><p>V areálu instalujeme přehledné orientační mapy obce a jejího okolí. Budeme jednat s vlastníky pozemků kolem nádraží o celkovém zkulturnění tohoto prostoru.</p></article>
-        <article class="point"><h3>Bydlení a územní rozvoj</h3><p>Zrychlíme přípravu a schválení územního plánu pro podporu rodinného bydlení a zasíťování obecních pozemků. Obnovíme historický přívoz do osady Višňová.</p></article>
+        <article class="point"><h3>Kvalitnější údržba a&nbsp;sezónní úklid</h3><p>Zavedeme ekologicky správnější sečení trávy a&nbsp;důsledný sezónní úklid obce (včetně jarního úklidu po zimní sezóně apod.).</p></article>
+        <article class="point"><h3>Areál u&nbsp;jezu</h3><p>Tento prostor si zaslouží celkovou revitalizaci. Jde nám o&nbsp;komplexní řešení jak prostranství k&nbsp;řece, tak parkoviště. Podpoříme zde výsadbu stromů, zpoplatnění parkoviště po vzoru jiných turistických obcí, realizujeme zde veřejné WC a&nbsp;převlékací zástěny. Zkvalitníme odpočinkovou infrastrukturu, doplníme odpočinkové zóny.</p></article>
+        <article class="point"><h3>Orientace a&nbsp;úprava prostranství</h3><p>V&nbsp;areálu instalujeme přehledné orientační mapy obce a&nbsp;jejího okolí. Budeme jednat s&nbsp;vlastníky pozemků kolem nádraží o&nbsp;celkovém zkulturnění tohoto prostoru.</p></article>
+        <article class="point"><h3>Bydlení a&nbsp;územní rozvoj</h3><p>Zrychlíme přípravu a&nbsp;schválení územního plánu pro podporu rodinného bydlení a&nbsp;zasíťování obecních pozemků. Obnovíme historický přívoz do osady Višňová.</p></article>
       </div>
     </section>
 
     <section class="program-section" id="zivotni-prostredi" aria-labelledby="zivotni-prostredi-title">
-      <div class="section-heading"><span class="section-number">03</span><h2 id="zivotni-prostredi-title">Odpadové hospodářství, energetika a životní prostředí</h2></div>
+      <div class="section-heading"><span class="section-number">03</span><h2 id="zivotni-prostredi-title">Odpadové hospodářství, energetika a&nbsp;životní prostředí</h2></div>
       <div class="points">
-        <article class="point"><h3>Ekonomika odpadů a prevence</h3><p>Máme připravena konkrétní opatření zaměřená na předcházení vzniku odpadů, osvětu a snižování celkových finančních nákladů obce i občanů na odpadové hospodářství. Zkvalitnění třídění a recyklace jsou nutným začátkem.</p></article>
-        <article class="point"><h3>Energetická soběstačnost a voda</h3><p>Navrhneme výstavbu fotovoltaické elektrárny (FVE) na budově ZŠ a MŠ V Zahrádkách s možností sdílení vyrobené elektřiny s obecním úřadem. Podpoříme občany v zachytávání dešťové vody (např. formou dotačního pořízení sudů po vzoru dřívějších kompostérů).</p></article>
+        <article class="point"><h3>Ekonomika odpadů a&nbsp;prevence</h3><p>Máme připravena konkrétní opatření zaměřená na předcházení vzniku odpadů, osvětu a&nbsp;snižování celkových finančních nákladů obce i&nbsp;občanů na odpadové hospodářství. Zkvalitnění třídění a&nbsp;recyklace jsou nutným začátkem.</p></article>
+        <article class="point"><h3>Energetická soběstačnost a&nbsp;voda</h3><p>Navrhneme výstavbu fotovoltaické elektrárny (FVE) na budově ZŠ a&nbsp;MŠ V&nbsp;Zahrádkách s&nbsp;možností sdílení vyrobené elektřiny s&nbsp;obecním úřadem. Podpoříme občany v&nbsp;zachytávání dešťové vody (např. formou dotačního pořízení sudů po vzoru dřívějších kompostérů).</p></article>
       </div>
     </section>
 
     <section class="program-section" id="spolkovy-zivot" aria-labelledby="spolkovy-zivot-title">
-      <div class="section-heading"><span class="section-number">04</span><h2 id="spolkovy-zivot-title">Spolkový život, volný čas a vyvážený turismus</h2></div>
+      <div class="section-heading"><span class="section-number">04</span><h2 id="spolkovy-zivot-title">Spolkový život, volný čas a&nbsp;vyvážený turismus</h2></div>
       <div class="points">
-        <article class="point"><h3>Podpora udržitelného turismu</h3><p>Podporujeme udržitelný rozvoj turismu a turistické infrastruktury. Nastavíme pravidla tak, aby návštěvníci neomezovali kvalitu života místních obyvatel a cestovní ruch přinášel obci užitek.</p></article>
-        <article class="point"><h3>Sport a vyžití pro děti i mládež</h3><p>Otevřeme fotbalové hřiště TJ Roztoky veřejnosti v mimozápasových časech. Budeme realizovat vznik nového dětského hřiště u jezu, chceme vybudovat pumptrack, BMX/skatepark a volejbalový kurt.</p></article>
-        <article class="point"><h3>Tradice, kurzy a spolky</h3><p>Podpoříme vznik nových zájmových spolků a kurzů pro děti i dospělé. Obnovíme tradiční kulturní akce (Máje, Posvícení, Neckyáda, koncerty) a partnerskou kulturní spolupráci s okolními obcemi (Křivoklát, Velká Buková, Městečko).</p></article>
+        <article class="point"><h3>Podpora udržitelného turismu</h3><p>Podporujeme udržitelný rozvoj turismu a&nbsp;turistické infrastruktury. Nastavíme pravidla tak, aby návštěvníci neomezovali kvalitu života místních obyvatel a&nbsp;cestovní ruch přinášel obci užitek.</p></article>
+        <article class="point"><h3>Sport a&nbsp;vyžití pro děti i&nbsp;mládež</h3><p>Otevřeme fotbalové hřiště TJ Roztoky veřejnosti v&nbsp;mimozápasových časech. Budeme realizovat vznik nového dětského hřiště u&nbsp;jezu, chceme vybudovat pumptrack, BMX/skatepark a&nbsp;volejbalový kurt.</p></article>
+        <article class="point"><h3>Tradice, kurzy a&nbsp;spolky</h3><p>Podpoříme vznik nových zájmových spolků a&nbsp;kurzů pro děti i&nbsp;dospělé. Obnovíme tradiční kulturní akce (Máje, Posvícení, Neckyáda, koncerty) a&nbsp;partnerskou kulturní spolupráci s&nbsp;okolními obcemi (Křivoklát, Velká Buková, Městečko).</p></article>
       </div>
     </section>
 
     <section class="program-section" id="samosprava" aria-labelledby="samosprava-title">
-      <div class="section-heading"><span class="section-number">05</span><h2 id="samosprava-title">Otevřená samospráva, komunikace a péče o občany</h2></div>
+      <div class="section-heading"><span class="section-number">05</span><h2 id="samosprava-title">Otevřená samospráva, komunikace a&nbsp;péče o&nbsp;občany</h2></div>
       <div class="points">
-        <article class="point"><h3>Moderní a dostupná komunikace</h3><p>Upravíme a zpřehledníme webové stránky a zavedeme elektronickou úřední tabuli, obnovíme pravidelný obecní rozhlas, který zajistí offline dostupnost informací z webu a mobilní aplikace „V obraze“.</p></article>
-        <article class="point"><h3>Digitální gramotnost a osvěta</h3><p>Budeme pořádat vzdělávací semináře k posilování digitálních dovedností občanů všech generací a k praktickému využívání moderních digitálních nástrojů a služeb státu.</p></article>
-        <article class="point"><h3>Participace a odbornost</h3><p>Zavedeme pravidelná neformální setkání vedení obce s občany nad investicemi a chystanými projekty. Zřídíme stálý mezioborový poradní tým (architekti, urbanisté, ekologové a technici) pro fundované rozhodování opřené o data.</p></article>
-        <article class="point"><h3>Péče o seniory</h3><p>Podpoříme rozvoj terénní pečovatelské služby a prověříme proveditelnost i ekonomickou návratnost vzniku domova pro seniory.</p></article>
+        <article class="point"><h3>Moderní a&nbsp;dostupná komunikace</h3><p>Upravíme a&nbsp;zpřehledníme webové stránky a&nbsp;zavedeme elektronickou úřední tabuli, obnovíme pravidelný obecní rozhlas, který zajistí offline dostupnost informací z&nbsp;webu a&nbsp;mobilní aplikace „V&nbsp;obraze“.</p></article>
+        <article class="point"><h3>Digitální gramotnost a&nbsp;osvěta</h3><p>Budeme pořádat vzdělávací semináře k&nbsp;posilování digitálních dovedností občanů všech generací a&nbsp;k&nbsp;praktickému využívání moderních digitálních nástrojů a&nbsp;služeb státu.</p></article>
+        <article class="point"><h3>Participace a&nbsp;odbornost</h3><p>Zavedeme pravidelná neformální setkání vedení obce s&nbsp;občany nad investicemi a&nbsp;chystanými projekty. Zřídíme stálý mezioborový poradní tým (architekti, urbanisté, ekologové a&nbsp;technici) pro fundované rozhodování opřené o&nbsp;data.</p></article>
+        <article class="point"><h3>Péče o&nbsp;seniory</h3><p>Podpoříme rozvoj terénní pečovatelské služby a&nbsp;prověříme proveditelnost i&nbsp;ekonomickou návratnost vzniku domova pro seniory.</p></article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div><p class="eyebrow">Komunální volby 2026</p><p class="footer-place">Srdcem<br>v Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
+      <div><p class="eyebrow">Komunální volby 2026</p><p class="footer-place">Srdcem<br>v&nbsp;Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
       <a class="back-to-top" href="#nahoru" aria-label="Zpět nahoru">↑</a>
     </div>
   </footer>
