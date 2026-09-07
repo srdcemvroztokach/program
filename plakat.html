@@ -216,16 +216,16 @@
       grid-column: 1 / -1;
       grid-template-columns: 10mm 1fr;
       min-height: auto;
-      padding-right: 43mm;
+      padding-right: 59mm;
       padding-bottom: 0;
     }
 
     .program-link {
       position: absolute;
       right: 13mm;
-      bottom: 9mm;
+      bottom: 8mm;
       display: block;
-      width: 30mm;
+      width: 46mm;
       color: var(--purple);
       text-align: center;
       text-decoration: none;
@@ -242,17 +242,63 @@
 
     .program-link img {
       display: block;
-      width: 100%;
+      width: 36mm;
       height: auto;
+      margin: 0 auto;
     }
 
     .program-url {
       display: block;
       margin-top: 1.5mm;
       color: var(--ink);
-      font-size: 3.5mm;
+      font-size: 4mm;
+      line-height: 1.1;
+    }
+
+    .candidates {
+      position: absolute;
+      right: 59mm;
+      bottom: 8mm;
+      left: 13mm;
+    }
+
+    .candidates h2 {
+      margin: 0 0 2.5mm;
+      color: var(--purple);
+      font-family: var(--font-heading);
+      font-size: 4mm;
       line-height: 1;
-      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .candidate-list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5mm 3mm;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: candidate;
+    }
+
+    .candidate-list li {
+      display: grid;
+      grid-template-columns: 4mm minmax(0, 1fr);
+      gap: 1mm;
+      align-items: baseline;
+      min-width: 0;
+      font-size: 3.4mm;
+      line-height: 1.05;
+      counter-increment: candidate;
+    }
+
+    .candidate-list li::before {
+      color: var(--purple);
+      content: counter(candidate) ".";
+      font-family: var(--font-heading);
+      font-size: 3mm;
     }
 
     @page {
@@ -320,10 +366,24 @@
         <li><div><strong>Spolkový život, volný čas a&nbsp;turismus</strong><p>Nová sportoviště pro děti, přístupné fotbalové hřiště a&nbsp;obnova tradic.</p></div></li>
         <li><div><strong>Otevřená samospráva a&nbsp;péče o&nbsp;občany</strong><p>Přehlednější web, zapojení občanů, digitální vzdělávání a&nbsp;péče o&nbsp;seniory.</p></div></li>
       </ol>
-      <a class="program-link" href="https://reese.cz/volby/" aria-label="Celý program na reese.cz/volby">
+      <section class="candidates" aria-labelledby="candidates-title">
+        <h2 id="candidates-title">Naši kandidáti</h2>
+        <ol class="candidate-list">
+          <li>Reeseová Ellen Jana</li>
+          <li>Tolman Petr Bc.</li>
+          <li>Peterková Lenka Ing.</li>
+          <li>Horská Sabina Bc.</li>
+          <li>Reese Ashley</li>
+          <li>Vorlíčková Štěpánka</li>
+          <li>Tolman Michal</li>
+          <li>Haehnelová Eva</li>
+          <li>Vanča Miloslav</li>
+        </ol>
+      </section>
+      <a class="program-link" href="https://srdcemvroztokach.github.io/program/" aria-label="Celý program na srdcemvroztokach.github.io/program">
         <span class="program-link-label">Celý program</span>
         <img src="qr-volby.svg" alt="">
-        <span class="program-url">reese.cz/volby/</span>
+        <span class="program-url">srdcemvroztokach.github.io<br>/program/</span>
       </a>
     </section>
   </main>
