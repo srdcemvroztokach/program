@@ -386,6 +386,7 @@
     .footer-inner {
       display: grid;
       grid-template-columns: minmax(220px, 0.7fr) minmax(480px, 1.3fr) auto;
+      align-items: stop;
       width: min(calc(100% - 40px), var(--content));
       min-height: 260px;
       margin: 0 auto;
@@ -451,6 +452,8 @@
       border: 1px solid rgba(255, 255, 255, 0.35);
       font: 700 1.3rem/1 sans-serif;
       text-decoration: none;
+      margin-top: auto;
+      margin-bottom: 2.5rem;
     }
 
     :focus-visible {
@@ -735,7 +738,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div><p class="eyebrow">Komunální volby 2026</p><p class="footer-place">Srdcem<br>v&nbsp;Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
+      <div><p class="eyebrow">AŤ TO TU ŽIJE</p><p class="footer-place">Srdcem<br>v&nbsp;Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
       <section class="footer-candidates" aria-labelledby="footer-candidates-title">
         <h2 id="footer-candidates-title">Naši kandidáti</h2>
         <ol class="footer-candidate-list">
