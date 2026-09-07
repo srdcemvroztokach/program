@@ -328,6 +328,21 @@
       text-transform: none;
     }
 
+    .back-signoff {
+      display: flex;
+      flex-direction: column;
+      gap: 2mm;
+    }
+
+    .legal-note {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 2.2mm;
+      line-height: 1.1;
+      text-transform: none;
+    }
+
     .back-link {
       display: flex;
       flex-direction: column;
@@ -447,7 +462,10 @@
     </ol>
 
     <footer class="back-footer">
-      <span>Ať to tu žije!</span>
+      <div class="back-signoff">
+        <span>Ať to tu žije!</span>
+        <p class="legal-note">Zadavatel/zpracovatel:<br>Srdcem v&nbsp;Roztokách</p>
+      </div>
       <a class="back-link" href="https://pi2.cz/srdcemvroztokach" aria-label="Celý program na pi2.cz/srdcemvroztokach">
         <img src="qr-volby.svg" alt="">
         <strong>pi2.cz/srdcemvroztokach</strong>
