@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Srdcem v Roztokách | Oboustranný leták A6</title>
+  <style>
+    @font-face {
+      font-family: "Bebas Neue Pro";
+      src: url("fonts/Bebas-Neue-Pro-Regular-BF66cf3d7814160.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Bebas Neue Pro Expanded";
+      src: url("fonts/Bebas-Neue-Pro-Expanded-ExtraBold-BF66cf3d793166e.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+    }
+
+    :root {
+      --purple: #7440cc;
+      --green: #00e590;
+      --paper: #fffdf0;
+      --ink: #20152f;
+      --muted: #655d6f;
+      --font-body: "Bebas Neue Pro", sans-serif;
+      --font-heading: "Bebas Neue Pro Expanded", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 24px;
+      color: var(--ink);
+      background: #ded9e5;
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+      font-synthesis: none;
+    }
+
+    .page {
+      position: relative;
+      width: 105mm;
+      height: 148mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(32, 21, 47, 0.2);
+    }
+
+    .front {
+      display: flex;
+      flex-direction: column;
+      padding: 8mm;
+      color: var(--paper);
+      background: var(--purple);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .brand img {
+      width: 10mm;
+      height: auto;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: 3.2mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .front h1 {
+      position: relative;
+      z-index: 1;
+      margin: 10mm 0 3mm;
+      font-family: var(--font-heading);
+      font-size: 13.5mm;
+      line-height: 0.84;
+      text-transform: uppercase;
+    }
+
+    .front-lead {
+      position: relative;
+      z-index: 1;
+      max-width: 80mm;
+      margin: 0;
+      font-size: 3.8mm;
+      line-height: 1.15;
+    }
+
+    .front-slogan {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      margin: 4mm 0 0;
+      padding: 1.5mm 2.5mm 1.2mm;
+      color: var(--purple);
+      background: var(--green);
+      font-family: var(--font-heading);
+      font-size: 5.8mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .front-bottom {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 27mm;
+      align-items: end;
+      margin-top: auto;
+      gap: 4mm;
+      margin-bottom: 10mm;
+    }
+
+    .candidates h2,
+    .qr-label {
+      margin: 0 0 2mm;
+      color: var(--green);
+      font-family: var(--font-heading);
+      font-size: 3.3mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .candidate-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6mm;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: candidate;
+    }
+
+    .candidate-list li {
+      display: grid;
+      grid-template-columns: 4mm minmax(0, 1fr);
+      gap: 1mm;
+      font-size: 3.35mm;
+      line-height: 1.05;
+      counter-increment: candidate;
+    }
+
+    .candidate-list li::before {
+      color: var(--green);
+      content: counter(candidate) ".";
+      font-family: var(--font-heading);
+      font-size: 2.9mm;
+    }
+
+    .qr-link {
+      display: block;
+      color: var(--paper);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .qr-link img {
+      display: block;
+      width: 27mm;
+      height: 27mm;
+      margin: 0 auto;
+      background: white;
+      margin-top: 2mm;
+    }
+
+    .qr-url {
+      display: block;
+      margin-top: 1.5mm;
+      font-size: 2.7mm;
+      line-height: 1.05;
+    }
+
+    .shape {
+      position: absolute;
+      display: block;
+      border: 0.8mm solid rgba(255, 253, 240, 0.9);
+      pointer-events: none;
+    }
+
+    .shape-top {
+      top: -13mm;
+      right: 13mm;
+      width: 15mm;
+      height: 27mm;
+      border-radius: 0 0 8mm 8mm;
+    }
+
+    .shape-right {
+      top: 51mm;
+      right: -24mm;
+      width: 38mm;
+      height: 13mm;
+      border-radius: 7mm;
+    }
+
+    .shape-bottom {
+      bottom: -12mm;
+      left: -11mm;
+      width: 23mm;
+      height: 23mm;
+      border-radius: 50%;
+    }
+
+    .back {
+      padding: 8mm;
+      background: var(--paper);
+    }
+
+    .back::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3mm;
+      content: "";
+      background: var(--green);
+    }
+
+    .back-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 5mm;
+      margin: 2mm 0 5mm;
+    }
+
+    .back-heading h1 {
+      margin: 0;
+      color: var(--purple);
+      font-family: var(--font-heading);
+      font-size: 8.5mm;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .back-heading img {
+      width: 11mm;
+      height: auto;
+    }
+
+    .priorities {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: priority;
+    }
+
+    .priorities li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 8mm minmax(0, 1fr);
+      gap: 2mm;
+      padding: 3.1mm 0;
+      border-top: 0.3mm solid rgba(116, 64, 204, 0.24);
+      counter-increment: priority;
+    }
+
+    .priorities li::before {
+      color: var(--purple);
+      content: "0" counter(priority);
+      font-family: var(--font-heading);
+      font-size: 6mm;
+      line-height: 1;
+    }
+
+    .priorities h2 {
+      margin: 0 0 1mm;
+      font-family: var(--font-heading);
+      font-size: 3.8mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .priorities p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 3.2mm;
+      line-height: 1.14;
+    }
+
+    .back-footer {
+      position: absolute;
+      right: 8mm;
+      bottom: 5mm;
+      left: 8mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: var(--purple);
+      font-family: var(--font-heading);
+      font-size: 3.1mm;
+      text-transform: uppercase;
+    }
+
+    .back-footer strong {
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 3mm;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    .back-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2mm;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .back-link img {
+      display: block;
+      width: 24mm;
+      height: 24mm;
+      background: white;
+    }
+
+    @page {
+      size: A6 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 105mm;
+        margin: 0;
+      }
+
+      body {
+        display: block;
+        padding: 0;
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 105mm;
+        height: 148mm;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        display: block;
+        padding: 0;
+      }
+
+      .page {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 105 / 148;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page front" aria-label="Přední strana letáku">
+    <span class="shape shape-top" aria-hidden="true"></span>
+    <span class="shape shape-right" aria-hidden="true"></span>
+    <span class="shape shape-bottom" aria-hidden="true"></span>
+
+    <div class="brand">
+      <img src="heart.svg" alt="">
+      <p class="eyebrow">Komunální volby 2026</p>
+    </div>
+
+    <h1>Srdcem<br>v&nbsp;Roztokách</h1>
+    <p class="front-lead">Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec.</p>
+    <p class="front-slogan">Ať to tu žije!</p>
+
+    <div class="front-bottom">
+      <section class="candidates" aria-labelledby="a6-candidates-title">
+        <h2 id="a6-candidates-title">Naši kandidáti</h2>
+        <ol class="candidate-list">
+          <li>Ellen Jana Reeseová</li>
+          <li>Bc. Petr Tolman</li>
+          <li>Ing. Lenka Peterková</li>
+          <li>Bc. Sabina Horská</li>
+          <li>Ashley Reese</li>
+          <li>Štěpánka Vorlíčková</li>
+          <li>Michal Tolman</li>
+          <li>Eva Haehnelová</li>
+          <li>Miloslav Vanča</li>
+        </ol>
+      </section>
+
+      <a class="qr-link" href="https://pi2.cz/srdcemvroztokach" aria-label="Celý program na pi2.cz/srdcemvroztokach">
+        <span class="qr-label">Celý program</span>
+        <img src="qr-volby.svg" alt="">
+        <span class="qr-url">pi2.cz/srdcemvroztokach</span>
+      </a>
+    </div>
+  </main>
+
+  <section class="page back" aria-labelledby="a6-program-title">
+    <header class="back-heading">
+      <h1 id="a6-program-title">Pět priorit<br>pro Roztoky</h1>
+      <img src="favicon.svg" alt="">
+    </header>
+
+    <ol class="priorities">
+      <li><div><h2>Doprava, bezpečnost a&nbsp;infrastruktura</h2><p>Zklidnění dopravy, bezpečné chodníky, údržba sítí a&nbsp;rychlejší internet.</p></div></li>
+      <li><div><h2>Veřejný prostor a&nbsp;rozvoj</h2><p>Revitalizace sídliště a&nbsp;areálu u&nbsp;jezu, lepší úklid, parkování a&nbsp;zeleň.</p></div></li>
+      <li><div><h2>Odpady, energie a&nbsp;příroda</h2><p>Méně odpadu, lepší třídění, fotovoltaika na škole a&nbsp;podpora dešťové vody.</p></div></li>
+      <li><div><h2>Sport, tradice a&nbsp;turismus</h2><p>Nová sportoviště pro děti, přístupné fotbalové hřiště a&nbsp;obnova tradičních akcí.</p></div></li>
+      <li><div><h2>Samospráva a&nbsp;péče</h2><p>Přehlednější web, zapojení občanů, digitální vzdělávání a&nbsp;terénní péče o&nbsp;seniory.</p></div></li>
+    </ol>
+
+    <footer class="back-footer">
+      <span>Ať to tu žije!</span>
+      <a class="back-link" href="https://pi2.cz/srdcemvroztokach" aria-label="Celý program na pi2.cz/srdcemvroztokach">
+        <img src="qr-volby.svg" alt="">
+        <strong>pi2.cz/srdcemvroztokach</strong>
+      </a>
+    </footer>
+  </section>
+</body>
+</html>
