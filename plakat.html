@@ -57,7 +57,7 @@
     .poster {
       position: relative;
       display: grid;
-      grid-template-rows: 49% 51%;
+      grid-template-rows: 44% 56%;
       width: min(100%, 210mm);
       aspect-ratio: 210 / 297;
       overflow: hidden;
@@ -104,7 +104,7 @@
 
     h1 {
       max-width: 175mm;
-      margin: 16mm 0 4mm;
+      margin: 11mm 0 4mm;
       font-family: var(--font-heading);
       font-size: 25mm;
       font-weight: 800;
@@ -121,7 +121,7 @@
     }
 
     .slogan {
-      margin: 7mm 0 0 8mm;
+      margin: 5mm 0 0 8mm;
       color: var(--green);
       font-family: var(--font-heading);
       font-size: 10mm;
@@ -162,7 +162,7 @@
 
     .program {
       position: relative;
-      padding: 10mm 13mm 11mm;
+      padding: 8mm 13mm 11mm;
       background: var(--paper);
     }
 
@@ -208,7 +208,7 @@
     .program-list strong {
       display: block;
       font-family: var(--font-heading);
-      font-size: 5.2mm;
+      font-size: 5.5mm;
       font-weight: 800;
       line-height: 1.05;
       text-transform: uppercase;
@@ -217,7 +217,7 @@
     .program-list p {
       margin: 1.5mm 0 0;
       color: #655d6f;
-      font-size: 3.8mm;
+      font-size: 4.6mm;
       line-height: 1.15;
     }
 
@@ -267,7 +267,7 @@
     .candidates {
       position: absolute;
       right: 59mm;
-      bottom: 8mm;
+      bottom: 30mm;
       left: 13mm;
     }
 
@@ -275,7 +275,7 @@
       margin: 0 0 2.5mm;
       color: var(--purple);
       font-family: var(--font-heading);
-      font-size: 4mm;
+      font-size: 4.5mm;
       line-height: 1;
       text-transform: uppercase;
     }
@@ -285,7 +285,7 @@
       grid-auto-flow: column;
       grid-template-rows: repeat(3, auto);
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5mm 3mm;
+      gap: 1.3mm 2mm;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -294,12 +294,12 @@
 
     .candidate-list li {
       display: grid;
-      grid-template-columns: 4mm minmax(0, 1fr);
-      gap: 1mm;
+      grid-template-columns: 3.5mm minmax(0, 1fr);
+      gap: 1.2mm;
       align-items: baseline;
       min-width: 0;
-      font-size: 3.4mm;
-      line-height: 1.05;
+      font-size: 5.5mm;
+      line-height: 1.25;
       counter-increment: candidate;
     }
 
@@ -307,7 +307,7 @@
       color: var(--purple);
       content: counter(candidate) ".";
       font-family: var(--font-heading);
-      font-size: 3mm;
+      font-size: 5mm;
     }
 
     @page {
