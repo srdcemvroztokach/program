@@ -93,9 +93,7 @@
       min-height: min(760px, 100vh);
       overflow: hidden;
       color: white;
-      background:
-        linear-gradient(90deg, transparent 49.85%, rgba(255, 253, 240, 0.06) 50%, transparent 50.15%) 0 0 / 88px 88px,
-        var(--forest);
+      background: var(--forest);
     }
 
     .hero-decorations {
@@ -164,6 +162,13 @@
 
     .hero-inner > div:first-child {
       min-width: 0;
+    }
+
+    .hero-logo {
+      display: block;
+      width: 72px;
+      height: auto;
+      margin: 0 0 42px;
     }
 
     .eyebrow {
@@ -465,6 +470,11 @@
         padding: 54px 0 110px;
       }
 
+      .hero-logo {
+        width: 58px;
+        margin-bottom: 34px;
+      }
+
       .shape-top {
         left: 66%;
       }
@@ -592,6 +602,7 @@
       </div>
       <div class="hero-inner">
         <div>
+          <img class="hero-logo" src="heart.svg" alt="Srdcem v Roztokách">
           <p class="eyebrow">Program pro komunální volby 2026</p>
           <h1 id="hero-title">Srdcem<br>v&nbsp;Roztokách</h1>
           <p class="hero-lead">Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec, ve které se dobře žije všem generacím.</p>
