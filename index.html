@@ -384,9 +384,9 @@
     }
 
     .footer-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(220px, 0.7fr) minmax(480px, 1.3fr) auto;
       align-items: end;
-      justify-content: space-between;
       width: min(calc(100% - 40px), var(--content));
       min-height: 260px;
       margin: 0 auto;
@@ -407,6 +407,42 @@
       color: rgba(255, 255, 255, 0.65);
     }
 
+    .footer-candidates h2 {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .footer-candidate-list {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: footer-candidate;
+    }
+
+    .footer-candidate-list li {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 6px;
+      min-width: 0;
+      line-height: 1.2;
+      counter-increment: footer-candidate;
+    }
+
+    .footer-candidate-list li::before {
+      color: var(--accent);
+      content: counter(footer-candidate) ".";
+      font-family: var(--font-heading);
+    }
+
     .back-to-top {
       display: inline-grid;
       width: 48px;
@@ -424,6 +460,15 @@
     }
 
     @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+      }
+
+      .footer-candidates {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+
       .overview-list {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -562,7 +607,19 @@
       }
 
       .footer-inner {
+        grid-template-columns: 1fr;
         align-items: start;
+      }
+
+      .footer-candidates {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .footer-candidate-list {
+        grid-auto-flow: row;
+        grid-template-rows: none;
+        grid-template-columns: 1fr;
       }
     }
 
@@ -680,6 +737,20 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div><p class="eyebrow">Komunální volby 2026</p><p class="footer-place">Srdcem<br>v&nbsp;Roztokách</p><p class="footer-note">Program pro naši obec.</p></div>
+      <section class="footer-candidates" aria-labelledby="footer-candidates-title">
+        <h2 id="footer-candidates-title">Naši kandidáti</h2>
+        <ol class="footer-candidate-list">
+          <li>Ellen Jana Reeseová</li>
+          <li>Bc. Petr Tolman</li>
+          <li>Ing. Lenka Peterková</li>
+          <li>Bc. Sabina Horská</li>
+          <li>Ashley Reese</li>
+          <li>Štěpánka Vorlíčková</li>
+          <li>Michal Tolman</li>
+          <li>Eva Haehnelová</li>
+          <li>Miloslav Vanča</li>
+        </ol>
+      </section>
       <a class="back-to-top" href="#nahoru" aria-label="Zpět nahoru">↑</a>
     </div>
   </footer>
