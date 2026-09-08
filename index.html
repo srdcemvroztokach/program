@@ -215,6 +215,7 @@
     }
 
     .hero-social a {
+      position: relative;
       display: inline-grid;
       width: 42px;
       height: 42px;
@@ -225,6 +226,31 @@
       font-size: 1.05rem;
       text-decoration: none;
       transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+    }
+
+    .hero-social a::after {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      z-index: 2;
+      width: max-content;
+      max-width: 220px;
+      padding: 8px 10px;
+      color: var(--ink);
+      background: var(--paper-light);
+      box-shadow: 0 8px 24px rgba(32, 21, 47, 0.2);
+      content: attr(data-tooltip);
+      font: 400 0.95rem/1.2 var(--font-body);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity 140ms ease, transform 140ms ease;
+    }
+
+    .hero-social a:hover::after,
+    .hero-social a:focus-visible::after {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .hero-social a:hover,
@@ -676,9 +702,13 @@
       }
 
       .hero-social a {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+      }
+
+      .hero-social a::after {
+        display: none;
       }
 
       .hero-logo {
@@ -848,10 +878,10 @@
             <a class="hero-link hero-link-secondary" href="#kandidati">Naši kandidáti</a>
           </div>
           <nav class="hero-social" aria-label="Kontakty a sociální sítě">
-            <a href="https://chat.whatsapp.com/J9njXHxneW0FMwXLIEjQ32" target="_blank" rel="noopener noreferrer" aria-label="Sousedská komunita na WhatsApp"><i class="fa-solid fa-user-group" aria-hidden="true"></i></a>
-            <a href="https://wa.me/420736197580" target="_blank" rel="noopener noreferrer" aria-label="Napište mi přes WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/ellen.reeseova" target="_blank" rel="noopener noreferrer" aria-label="Instagram Ellen Reeseové"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/purrplingcat" target="_blank" rel="noopener noreferrer" aria-label="Facebook Ellen Reeseové"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://chat.whatsapp.com/J9njXHxneW0FMwXLIEjQ32" target="_blank" rel="noopener noreferrer" aria-label="Sousedská komunita na WhatsApp" data-tooltip="Sousedská komunita"><i class="fa-solid fa-user-group" aria-hidden="true"></i></a>
+            <a href="https://wa.me/420736197580" target="_blank" rel="noopener noreferrer" aria-label="Napište mi přes WhatsApp" data-tooltip="Napište mi přes WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/ellen.reeseova" target="_blank" rel="noopener noreferrer" aria-label="Instagram Ellen Reeseové" data-tooltip="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/purrplingcat" target="_blank" rel="noopener noreferrer" aria-label="Facebook Ellen Reeseové" data-tooltip="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
           </nav>
         </div>
       </div>
