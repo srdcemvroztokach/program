@@ -457,6 +457,8 @@
 
     .candidate-list {
       display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, auto);
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin: 0;
       padding: 0;
@@ -737,6 +739,8 @@
       }
 
       .candidate-list {
+        grid-auto-flow: row;
+        grid-template-rows: none;
         grid-template-columns: 1fr;
       }
 
