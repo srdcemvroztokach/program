@@ -10,6 +10,7 @@
 
   <link rel="canonical" href="https://www.pi2.cz/srdcemvroztokach">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="cs_CZ">
@@ -253,6 +254,18 @@
       text-decoration: none;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-link-secondary {
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.72);
+      background: transparent;
+    }
+
     .hero-link::after {
       margin-left: 12px;
       font-size: 1.25rem;
@@ -419,6 +432,57 @@
       margin-top: 1em;
     }
 
+    .candidates-section {
+      color: white;
+      background: var(--forest);
+    }
+
+    .candidates-inner {
+      width: min(calc(100% - 40px), var(--content));
+      margin: 0 auto;
+      padding: 92px 0 100px;
+    }
+
+    .candidates-heading {
+      margin-bottom: 54px;
+    }
+
+    .candidates-heading h2 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .candidate-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.28);
+      list-style: none;
+      counter-reset: candidate;
+    }
+
+    .candidate-list li {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      align-items: baseline;
+      padding: 22px 18px 22px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+      gap: 10px;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.15;
+      counter-increment: candidate;
+    }
+
+    .candidate-list li::before {
+      color: var(--accent);
+      content: counter(candidate, decimal-leading-zero);
+      font: 800 1.35rem/1 var(--font-heading);
+    }
+
     .site-footer {
       color: white;
       background: var(--forest-dark);
@@ -426,7 +490,7 @@
 
     .footer-inner {
       display: grid;
-      grid-template-columns: minmax(220px, 0.7fr) minmax(480px, 1.3fr) auto;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(340px, 1.2fr) auto;
       align-items: stop;
       width: min(calc(100% - 40px), var(--content));
       min-height: 260px;
@@ -454,7 +518,7 @@
       font-size: 0.85rem;
     }
 
-    .footer-candidates h2 {
+    .footer-links h2 {
       margin: 0 0 18px;
       color: var(--accent);
       font-family: var(--font-heading);
@@ -463,31 +527,41 @@
       text-transform: uppercase;
     }
 
-    .footer-candidate-list {
+    .footer-link-list {
       display: grid;
-      grid-auto-flow: column;
-      grid-template-rows: repeat(3, auto);
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
       margin: 0;
       padding: 0;
       list-style: none;
-      counter-reset: footer-candidate;
     }
 
-    .footer-candidate-list li {
-      display: grid;
-      grid-template-columns: 24px minmax(0, 1fr);
-      gap: 6px;
-      min-width: 0;
-      line-height: 1.2;
-      counter-increment: footer-candidate;
+    .footer-link-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: white;
+      line-height: 1.25;
+      text-decoration-color: rgba(255, 255, 255, 0.45);
+      text-underline-offset: 4px;
     }
 
-    .footer-candidate-list li::before {
+    .contact-icon {
+      display: inline-grid;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      place-items: center;
+      color: var(--forest-dark);
+      background: var(--accent);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .footer-link-list a:hover,
+    .footer-link-list a:focus-visible {
       color: var(--accent);
-      content: counter(footer-candidate) ".";
-      font-family: var(--font-heading);
     }
 
     .back-to-top {
@@ -513,7 +587,7 @@
         grid-template-columns: 1fr auto;
       }
 
-      .footer-candidates {
+      .footer-links {
         grid-column: 1 / -1;
         grid-row: 2;
       }
@@ -552,6 +626,7 @@
       .overview,
       .program-section,
       .program-intro,
+      .candidates-inner,
       .footer-inner {
         width: min(calc(100% - 28px), var(--content));
       }
@@ -655,19 +730,27 @@
         gap: 0;
       }
 
+      .candidates-heading {
+        grid-template-columns: 1fr;
+        margin-bottom: 36px;
+        gap: 18px;
+      }
+
+      .candidate-list {
+        grid-template-columns: 1fr;
+      }
+
       .footer-inner {
         grid-template-columns: 1fr;
         align-items: start;
       }
 
-      .footer-candidates {
+      .footer-links {
         grid-column: auto;
         grid-row: auto;
       }
 
-      .footer-candidate-list {
-        grid-auto-flow: row;
-        grid-template-rows: none;
+      .footer-link-list {
         grid-template-columns: 1fr;
       }
     }
@@ -689,6 +772,9 @@
       .hero-lead { color: var(--muted); }
       .program-intro { margin: 40px auto; }
       .program-section { padding: 36px 0; break-inside: avoid; }
+      .candidates-section { color: var(--ink); background: white; break-inside: avoid; }
+      .candidates-inner { padding: 36px 0; }
+      .candidate-list li { border-color: var(--line); }
       .site-footer { color: var(--ink); background: white; }
       .footer-inner { min-height: auto; }
     }
@@ -712,7 +798,10 @@
           <p class="eyebrow">Program pro komunální volby 2026</p>
           <h1 id="hero-title">SRDCEM<br>V&nbsp;ROZTOKÁCH</h1>
           <p class="hero-lead">Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec, ve které se dobře žije všem generacím.</p>
-          <a class="hero-link" href="#prehled">Prohlédnout program</a>
+          <div class="hero-actions">
+            <a class="hero-link" href="#prehled">Prohlédnout program</a>
+            <a class="hero-link hero-link-secondary" href="#kandidati">Naši kandidáti</a>
+          </div>
         </div>
       </div>
     </section>
@@ -781,14 +870,13 @@
         <article class="point"><h3>Péče o&nbsp;seniory</h3><p>Podpoříme rozvoj terénní pečovatelské služby a&nbsp;prověříme proveditelnost i&nbsp;ekonomickou návratnost vzniku domova pro seniory.</p></article>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div><p class="eyebrow">AŤ TO TU ŽIJE!</p><p class="footer-place">SRDCEM<br>V&nbsp;ROZTOKÁCH</p><p class="footer-note">Program pro naši obec.</p><p class="legal-note">Zadavatel/zpracovatel: Srdcem v&nbsp;Roztokách</p></div>
-      <section class="footer-candidates" aria-labelledby="footer-candidates-title">
-        <h2 id="footer-candidates-title">Naši kandidáti</h2>
-        <ol class="footer-candidate-list">
+    <section class="candidates-section" id="kandidati" aria-labelledby="kandidati-title">
+      <div class="candidates-inner">
+        <div class="candidates-heading">
+          <h2 id="kandidati-title">Naši kandidáti</h2>
+        </div>
+        <ol class="candidate-list">
           <li>Ellen Jana Reeseová</li>
           <li>Bc. Petr Tolman</li>
           <li>Ing. Lenka Peterková</li>
@@ -799,6 +887,21 @@
           <li>Eva Haehnelová</li>
           <li>Miloslav Vanča</li>
         </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><p class="eyebrow">AŤ TO TU ŽIJE!</p><p class="footer-place">SRDCEM<br>V&nbsp;ROZTOKÁCH</p><p class="footer-note">Program pro naši obec.</p><p class="legal-note">Zadavatel/zpracovatel: Srdcem v&nbsp;Roztokách</p></div>
+      <section class="footer-links" aria-labelledby="footer-links-title">
+        <h2 id="footer-links-title">Spojme se</h2>
+        <ul class="footer-link-list">
+          <li><a href="https://chat.whatsapp.com/J9njXHxneW0FMwXLIEjQ32" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user-group contact-icon" aria-hidden="true"></i>Sousedská komunita</a></li>
+          <li><a href="https://wa.me/420736197580" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp contact-icon" aria-hidden="true"></i>Napište mi přes WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/ellen.reeseova" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram contact-icon" aria-hidden="true"></i>Instagram</a></li>
+          <li><a href="https://www.facebook.com/purrplingcat" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f contact-icon" aria-hidden="true"></i>Facebook</a></li>
+        </ul>
       </section>
       <a class="back-to-top" href="#nahoru" aria-label="Zpět nahoru">↑</a>
     </div>
