@@ -102,6 +102,19 @@
       text-transform: uppercase;
     }
 
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+
+    .brand-subtitle {
+      margin: 0;
+      font-size: 3.5mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
     h1 {
       max-width: 175mm;
       margin: 11mm 0 4mm;
@@ -375,7 +388,10 @@
       <div class="hero-content">
         <div class="brand-row">
           <img class="heart" src="heart.svg" alt="">
-          <p class="eyebrow">Volební program</p>
+          <div class="brand-copy">
+            <p class="eyebrow">Komunální volby 2026</p>
+            <p class="brand-subtitle">Volební program strany</p>
+          </div>
         </div>
         <h1 id="poster-title">Srdcem<br>v&nbsp;Roztokách</h1>
         <p class="lead">Konkrétní plán pro bezpečnou, živou a&nbsp;dobře spravovanou obec.</p>
@@ -386,7 +402,7 @@
     <section class="program" aria-label="Programové priority">
       <ol class="program-list">
         <li><div><strong>Doprava, bezpečnost a&nbsp;infrastruktura</strong><p>Zklidnění dopravy, nové chodníky, údržba sítí a&nbsp;rychlejší internet.</p></div></li>
-        <li><div><strong>Veřejný prostor, úklid a&nbsp;rozvoj</strong><p>Revitalizace sídliště a&nbsp;areálu u&nbsp;jezu, lepší úklid a&nbsp;více zeleně.</p></div></li>
+        <li><div><strong>Veřejný prostor, úklid a&nbsp;rozvoj</strong><p>Revitalizace sídliště a&nbsp;areálu u&nbsp;jezu, zrychlení dokončení územního plánu, lepší úklid a&nbsp;více zeleně.</p></div></li>
         <li><div><strong>Odpady, energetika a&nbsp;životní prostředí</strong><p>Méně odpadu, lepší třídění, fotovoltaika na škole a&nbsp;podpora dešťové vody.</p></div></li>
         <li><div><strong>Spolkový život a volný čas</strong><p>Nová sportoviště pro děti, přístupné fotbalové hřiště a&nbsp;obnova tradic.</p></div></li>
         <li><div><strong>Otevřená samospráva a&nbsp;péče o&nbsp;občany</strong><p>Přehlednější web, zapojení občanů, digitální vzdělávání a&nbsp;péče o&nbsp;seniory.</p></div></li>
