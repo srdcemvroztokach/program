@@ -7,6 +7,7 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#7440cc">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <title>Oznámení o transparentnosti | Srdcem v Roztokách</title>
   <style>
     @font-face {
@@ -34,6 +35,7 @@
       --purple-dark: #5426a4;
       --green: #00e590;
       --line: rgba(61, 35, 105, 0.18);
+      --content: 1180px;
       --font-body: "Bebas Neue Pro", sans-serif;
       --font-heading: "Bebas Neue Pro Expanded", sans-serif;
     }
@@ -80,8 +82,7 @@
     }
 
     .hero-inner,
-    .content,
-    .footer-inner {
+    .content {
       width: min(calc(100% - 40px), 900px);
       margin: 0 auto;
     }
@@ -106,11 +107,16 @@
     }
 
     .eyebrow {
-      margin: 52px 0 12px;
+      margin: 0 0 9px;
       color: var(--green);
       font-family: var(--font-heading);
       font-size: 1rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      margin: 52px 0 12px;
     }
 
     h1 {
@@ -147,6 +153,7 @@
       font-size: 1.25rem;
       line-height: 1.15;
       text-transform: uppercase;
+      transform: translateY(6px);
     }
 
     .notice-section p {
@@ -159,32 +166,126 @@
     }
 
     .identity {
-      color: var(--ink) !important;
-      font-size: 1.2rem;
+      color: var(--muted);
+      font-size: inherit;
     }
 
-    .footer {
+    .site-footer {
       color: white;
       background: var(--purple-dark);
     }
 
     .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 0;
-      gap: 24px;
-      font-size: 0.9rem;
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(340px, 1.2fr) auto;
+      align-items: start;
+      width: min(calc(100% - 40px), var(--content));
+      min-height: 260px;
+      margin: 0 auto;
+      padding: 56px 0;
+      gap: 40px;
     }
 
-    .footer a {
+    .footer-place {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.4rem, 3vw, 3rem);
+      line-height: 0.95;
+    }
+
+    .footer-note {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .legal-note {
+      display: flex;
+      grid-column: 1 / -1;
+      justify-content: space-between;
+      margin: 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.85rem;
+      gap: 16px;
+    }
+
+    .site-footer a {
       color: white;
+    }
+
+    .footer-links h2 {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .footer-link-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-link-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      line-height: 1.25;
+      text-decoration-color: rgba(255, 255, 255, 0.45);
+      text-underline-offset: 4px;
+    }
+
+    .contact-icon {
+      display: inline-grid;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      place-items: center;
+      color: var(--purple-dark);
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .footer-link-list a:hover,
+    .footer-link-list a:focus-visible {
+      color: var(--green);
+    }
+
+    .back-to-top {
+      display: inline-grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font: 700 1.3rem/1 sans-serif;
+      text-decoration: none;
+      margin-top: auto;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+      }
+
+      .footer-links {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
     }
 
     @media (max-width: 620px) {
       .hero-inner,
-      .content,
-      .footer-inner {
+      .content {
         width: min(calc(100% - 28px), 900px);
       }
 
@@ -192,7 +293,7 @@
         padding: 34px 0 42px;
       }
 
-      .eyebrow {
+      .hero .eyebrow {
         margin-top: 38px;
       }
 
@@ -214,14 +315,35 @@
         gap: 14px;
       }
 
+      .notice-section h2 {
+        transform: none;
+      }
+
       .footer-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+        width: min(calc(100% - 28px), var(--content));
+        padding-bottom: 20px;
+      }
+
+      .footer-links {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .footer-link-list {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-note {
         flex-direction: column;
-        align-items: flex-start;
+        margin-top: 8px;
+        gap: 4px;
       }
     }
   </style>
 </head>
-<body>
+<body id="nahoru">
   <header class="hero">
     <div class="hero-inner">
       <a class="home-link" href="index.html">
@@ -254,7 +376,7 @@
     <section class="notice-section" aria-labelledby="zadavatel">
       <h2 id="zadavatel">Zadavatel a&nbsp;zpracovatel</h2>
       <div>
-        <p class="identity"><strong>Zadavatel/zpracovatel: Srdcem v&nbsp;Roztokách</strong></p>
+        <p class="identity">Srdcem v&nbsp;Roztokách</p>
       </div>
     </section>
 
@@ -275,10 +397,20 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="footer-inner">
-      <span>© 2026 Srdcem v&nbsp;Roztokách</span>
-      <a href="index.html">Zpět na volební program</a>
+      <div><p class="eyebrow">AŤ TO TU ŽIJE!</p><p class="footer-place">SRDCEM<br>V&nbsp;ROZTOKÁCH</p><p class="footer-note">Program pro naši obec.</p></div>
+      <section class="footer-links" aria-labelledby="footer-links-title">
+        <h2 id="footer-links-title">Spojme se</h2>
+        <ul class="footer-link-list">
+          <li><a href="https://chat.whatsapp.com/J9njXHxneW0FMwXLIEjQ32" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-user-group contact-icon" aria-hidden="true"></i>Sousedská komunita</a></li>
+          <li><a href="https://wa.me/420736197580" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp contact-icon" aria-hidden="true"></i>Napište lídryni přes WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/ellen.reeseova" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram contact-icon" aria-hidden="true"></i>Instagram</a></li>
+          <li><a href="https://www.facebook.com/purrplingcat" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f contact-icon" aria-hidden="true"></i>Facebook</a></li>
+        </ul>
+      </section>
+      <a class="back-to-top" href="#nahoru" aria-label="Zpět nahoru">↑</a>
+      <p class="legal-note"><span>Zadavatel/zpracovatel: Srdcem v&nbsp;Roztokách · <a href="oznameni-transparentnosti.html" aria-current="page">Oznámení o&nbsp;transparentnosti</a></span><span>© 2026 Srdcem v&nbsp;Roztokách</span></p>
     </div>
   </footer>
 </body>
