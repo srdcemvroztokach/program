@@ -131,7 +131,7 @@
       position: relative;
       z-index: 1;
       width: fit-content;
-      margin: 4mm 0 0;
+      margin: 4mm 0 4mm;
       padding: 1.5mm 2.5mm 1.2mm;
       color: var(--purple);
       background: var(--green);
@@ -145,19 +145,27 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 27mm;
+      grid-template-columns: minmax(0, 1fr) 42mm;
       align-items: end;
       margin-top: auto;
       gap: 4mm;
       margin-bottom: 10mm;
     }
 
-    .candidates h2,
-    .qr-label {
-      margin: 0 0 2mm;
+    .candidates h2 {
+      margin: 0 2mm 2mm;
       color: var(--green);
       font-family: var(--font-heading);
-      font-size: 3.3mm;
+      font-size: 4.3mm;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .qr-label {
+      margin: 2mm 4mm 4mm;
+      color: var(--green);
+      font-family: var(--font-heading);
+      font-size: 4.3mm;
       line-height: 1;
       text-transform: uppercase;
     }
@@ -193,12 +201,13 @@
       color: var(--paper);
       text-align: center;
       text-decoration: none;
+      margin-left: 6mm;
     }
 
     .qr-link img {
       display: block;
-      width: 27mm;
-      height: 27mm;
+      width: 32mm;
+      height: 32mm;
       margin: 0 auto;
       background: white;
       margin-top: 2mm;
@@ -207,7 +216,7 @@
     .qr-url {
       display: block;
       margin-top: 1.5mm;
-      font-size: 2.7mm;
+      font-size: 4mm;
       font-weight: 700;
       line-height: 1.05;
     }
@@ -324,7 +333,7 @@
     .back-footer {
       position: absolute;
       right: 8mm;
-      bottom: 2mm;
+      bottom: 6mm;
       left: 8mm;
       display: flex;
       justify-content: space-between;
